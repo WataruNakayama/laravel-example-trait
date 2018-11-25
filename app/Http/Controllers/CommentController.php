@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Comment;
-use App\Post;
+use App\Models\Comment;
+use App\Models\Post;
 
 class CommentController extends Controller
 {
@@ -30,6 +30,5 @@ class CommentController extends Controller
         $post->comments()->save($reply);
 
         return back();
-
     }
 }

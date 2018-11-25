@@ -1,13 +1,14 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Traits\Timestamp;
 
 class User extends Authenticatable
 {
-    use Notifiable;
+    use Notifiable, Timestamp;
 
     /**
      * The attributes that are mass assignable.

@@ -4,6 +4,11 @@
         margin-left: 40px
     }
 </style>
+
+
+
+
+
 @section('content')
 
 <div class="container">
@@ -15,9 +20,12 @@
                     <p>
                         {{ $post->body }}
                     </p>
+                    <p class="text-right">
+                        Modified at：{{ $post->modified_at }}
+                    </p>
                     <hr />
                     <h4>Display Comments</h4>
-                    @include('partials._comment_replies', ['comments' => $post->comments, 'post_id' => $post->id])
+    @include('partials._comment_replies', ['comments' => $post->comments, 'post_id' => $post->id])
                     <hr />
                     <h4>Add comment</h4>
                     <form method="post" action="{{ route('comment.add') }}">

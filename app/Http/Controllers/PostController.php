@@ -1,13 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Post;
+
+use App\Models\Post;
 
 use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
-
     public function __construct()
     {
         return $this->middleware('auth');
@@ -31,7 +31,7 @@ class PostController extends Controller
 
     public function index()
     {
-        $posts = Post::select('id', 'title')->get();
+        $posts = Post::orderBy('created_at', 'DESC')->get();
         
         return view('index', compact('posts'));
     }

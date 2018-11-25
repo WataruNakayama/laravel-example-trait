@@ -1,5 +1,4 @@
-@extends('layouts.app')
-
+@extends('layouts.app') 
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -8,18 +7,24 @@
                 <thead>
                     <th>ID</th>
                     <th>Title</th>
+                    <th>Modefied At</th>
                     <th>Action</th>
                 </thead>
                 <tbody>
-                @foreach($posts as $post)
-                <tr>
-                    <td>{{ $post->id }}</td>
-                    <td>{{ $post->title }}</td>
-                    <td>
-                        <a href="{{ route('post.show', $post->id) }}" class="btn btn-primary">Show Post</a>
-                    </td>
-                </tr>
-                @endforeach
+                    @foreach($posts as $post)
+                    <tr>
+                        <td>{{ $post->id }}</td>
+                        <td>
+                            {{ $post->title }}
+                        </td>
+                        <td>
+                            {{$post->modified_at->format('Y-m-d')}}
+                        </td>
+                        <td>
+                            <a href="{{ route('post.show', $post->id) }}" class="btn btn-primary">Show Post</a>
+                        </td>
+                    </tr>
+                    @endforeach
                 </tbody>
 
             </table>

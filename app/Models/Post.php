@@ -1,11 +1,14 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Traits\Timestamp;
 
 class Post extends Model
 {
+    use Timestamp;
+    
     public function user()
     {
         return $this->belongsTo(User::class);

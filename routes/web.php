@@ -1,7 +1,7 @@
 <?php
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('posts');
 });
 
 Auth::routes();
@@ -16,5 +16,3 @@ Route::get('/post/show/{id}', 'PostController@show')->name('post.show');
 
 Route::post('/comment/store', 'CommentController@store')->name('comment.add');
 Route::post('/reply/store', 'CommentController@replyStore')->name('reply.add');
-
-
